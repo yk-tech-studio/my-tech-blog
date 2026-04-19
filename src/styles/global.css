@@ -1,145 +1,186 @@
+/* =========================
+   Design Tokens
+========================= */
 :root {
-	--accent: #c9a227;
-	--accent-dark: #a07d1a;
-	--accent-light: #e8c547;
-	--navy: #0d1b3e;
-	--navy-light: #162447;
-	--black: 13, 27, 62;
-	--gray: 90, 110, 155;
-	--gray-light: 218, 226, 240;
-	--gray-dark: 30, 48, 90;
-	--gray-gradient: rgba(var(--gray-light), 40%), #f6f8ff;
-	--box-shadow:
-		0 2px 6px rgba(var(--gray), 20%), 0 8px 24px rgba(var(--gray), 28%),
-		0 16px 32px rgba(var(--gray), 28%);
-	--font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-		Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
+  --bg: #0b0f1a;
+  --bg-soft: #111827;
+  --text: #e6edf3;
+  --text-muted: #8b949e;
+  --accent: #58a6ff;
+  --border: #30363d;
+
+  --max-width: 760px;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
+
+/* =========================
+   Base
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-	font-family: var(--font-body);
-	margin: 0;
-	padding: 0;
-	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
-	font-size: 20px;
-	line-height: 1.7;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
-main {
-	width: 720px;
-	max-width: calc(100% - 2em);
-	margin: auto;
-	padding: 3em 1em;
+
+/* =========================
+   Layout
+========================= */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 24px;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
-	line-height: 1.2;
-}
-h1 {
-	font-size: 3.052em;
-}
-h2 {
-	font-size: 2.441em;
-}
-h3 {
-	font-size: 1.953em;
-}
-h4 {
-	font-size: 1.563em;
-}
-h5 {
-	font-size: 1.25em;
-}
-strong,
-b {
-	font-weight: 700;
-}
+
+/* =========================
+   Links
+========================= */
 a {
-	color: var(--accent-dark);
+  color: var(--accent);
+  text-decoration: none;
 }
+
 a:hover {
-	color: var(--accent);
+  text-decoration: underline;
 }
+
+/* =========================
+   Headings
+========================= */
+h1, h2, h3, h4 {
+  line-height: 1.3;
+  margin-top: 2.2em;
+  margin-bottom: 0.8em;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-top: 1.2em;
+}
+
+h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.3em;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
 p {
-	margin-bottom: 1em;
+  margin: 1.2em 0;
 }
-.prose p {
-	margin-bottom: 2em;
+
+/* =========================
+   Lists
+========================= */
+ul, ol {
+  padding-left: 1.5em;
+  margin: 1.2em 0;
 }
-textarea {
-	width: 100%;
-	font-size: 16px;
+
+li {
+  margin: 0.5em 0;
 }
-input {
-	font-size: 16px;
-}
-table {
-	width: 100%;
-}
-img {
-	max-width: 100%;
-	height: auto;
-	border-radius: 8px;
-}
-code {
-	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
-	font-family: 'Cascadia Code', 'Fira Code', 'Consolas', 'Menlo', monospace;
-	font-size: 0.9em;
-}
-pre {
-	padding: 1.5em;
-	border-radius: 8px;
-}
-pre > code {
-	all: unset;
-}
+
+/* =========================
+   Blockquote
+========================= */
 blockquote {
-	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
-	margin: 0;
-	font-size: 1.333em;
+  border-left: 3px solid var(--accent);
+  padding-left: 1em;
+  color: var(--text-muted);
+  margin: 1.5em 0;
 }
+
+/* =========================
+   Code
+========================= */
+code {
+  font-family: var(--font-mono);
+  background: var(--bg-soft);
+  padding: 0.2em 0.4em;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+
+pre {
+  background: var(--bg-soft);
+  padding: 16px;
+  border-radius: 10px;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+}
+
+pre code {
+  padding: 0;
+  background: none;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+/* =========================
+   Horizontal Rule
+========================= */
 hr {
-	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
-}
-@media (max-width: 720px) {
-	body {
-		font-size: 18px;
-	}
-	main {
-		padding: 1em;
-	}
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 3em 0;
 }
 
+/* =========================
+   Images
+========================= */
+img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* =========================
+   Table
+========================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 8px;
+}
+
+th {
+  background: var(--bg-soft);
+}
+
+/* =========================
+   Small text
+========================= */
+small {
+  color: var(--text-muted);
+}
+
+/* =========================
+   Blog post layout
+========================= */
 main.blog-post-main {
-	width: calc(100% - 2em);
-	max-width: 100%;
-	margin: 0;
-	padding: 0;
-}
-
-.sr-only {
-	border: 0;
-	padding: 0;
-	margin: 0;
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	clip: rect(1px 1px 1px 1px);
-	clip: rect(1px, 1px, 1px, 1px);
-	clip-path: inset(50%);
-	white-space: nowrap;
+  max-width: 100%;
+  padding: 0;
 }
